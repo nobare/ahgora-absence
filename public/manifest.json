@@ -1,0 +1,26 @@
+{
+  "description": "Controlador de intervalos dos Ahtivados",
+  "manifest_version": 3,
+  "name": "Ahgora--Absence",
+  "version": "1.0",
+  "action": {
+    "default_icon": "/icons/ahgora-logo-64.png",
+    "default_popup": "index.html"
+   },
+  "permissions": [
+    "webRequest",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
