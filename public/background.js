@@ -1,19 +1,29 @@
-function logURL(requestDetails) {
-  console.log("Loading: " + requestDetails.url);
-  let popup = open(
-    "popup.html",
-    "_blank",
-    "toolbar=no,titlebar=no,fullscreen=yes,scrollbars=no,menubar=no,status=no,resizable=no")
-  popup.focus();
+const Offline = () => {
+  chrome.windows.create({
+    url: chrome.runtime.getURL("index.html"),
+    type: "popup",
+    state: "fullscreen"
+  })
+};
+const Online = () => {
+  chrome.windows.create({
+    url: chrome.runtime.getURL("online.html"),
+    type: "popup",
+    state: "fullscreen"
+  })
 };
 
 chrome.webRequest.onBeforeRequest.addListener(
-  logURL, {
-  urls: ["https://seusucesso.ahgora.com.br/Chat/SetStatus/*"],
+  Offline, {
+  urls: ["https://seusucesso.ahgora.com.br/Chat/SetStatus/Offline*"],
+});
+
+chrome.webRequest.onBeforeRequest.addListener(
+  Online, {
+  urls: ["https://seusucesso.ahgora.com.br/Chat/SetStatus/Online*"],
 });
 
 const getName = () => {
-  console.log('Buscando Nome');
   const nome = document.querySelector(
     '#hello-message-panel > div.col-sm-8.introduction-hello-name > div:nth-child(1) > div > strong > a').innerHTML
   const nomeEditado = nome.slice(0, -1)
@@ -28,6 +38,6 @@ chrome.tabs.onUpdated.addListener(function
       {
         target: { tabId: tabId },
         func: getName
-      }
-    )}
+    }
+  )}
 })
