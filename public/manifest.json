@@ -11,8 +11,7 @@
   ],
   "host_permissions": [
     "https://*/*",
-    "http://*/*",
-    "index.html"
+    "http://*/*"
   ],
   "chrome_url_overrides": {
     "newtab": "index.html"

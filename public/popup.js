@@ -1,6 +1,6 @@
 const updatePopup = () => {
-    chrome.storage.sync.get(['Agente'], function(data) {
-        return localStorage.setItem('Agente', data.Agente)
+    chrome.storage.sync.get(['Intervalos'], function(data) {
+        return document.getElementById('intervalos').innerHTML = data.Agente;
     });
   }
   
