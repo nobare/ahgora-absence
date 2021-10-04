@@ -35,9 +35,12 @@ const OptionsSelect = () => {
         styles={styles}
       />
  
-      {selectedOption && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-        <div><b>Value: </b> {selectedOption.value}</div>
-      </div>}
+      {
+      selectedOption && 
+      <div style={{ marginTop: 20, lineHeight: '25px' }}>
+        <div><b> Value: </b> {selectedOption.value}</div>
+      </div>
+      }
     </div>
   );
 }
