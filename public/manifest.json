@@ -1,7 +1,7 @@
 {
   "description": "Controlador de intervalos dos Ahtivados",
   "manifest_version": 3,
-  "name": "Ahgora--Absence",
+  "name": "Ahgora-Absence",
   "version": "1.0",
   "permissions": [
     "webRequest",
@@ -13,9 +13,6 @@
     "https://*/*",
     "http://*/*"
   ],
-  "chrome_url_overrides": {
-    "newtab": "index.html"
-  },
   "background": {
     "service_worker": "background.js"
   }
